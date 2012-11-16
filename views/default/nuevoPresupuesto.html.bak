@@ -1,0 +1,3 @@
+{{extend 'layout.html'}}
+<h1>Nuevo Presupuesto</h1>
+{{=BEAUTIFY(response._vars)}}

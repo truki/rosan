@@ -1,0 +1,110 @@
+(dp1
+S'neto'
+p2
+(dp3
+S'type'
+p4
+S'double'
+p5
+sS'sortable'
+p6
+I5
+sS'sql'
+p7
+S'DOUBLE NOT NULL'
+p8
+ssS'total_iva'
+p9
+(dp10
+g4
+g5
+sg6
+I8
+sg7
+S'DOUBLE NOT NULL'
+p11
+ssS'descuento'
+p12
+(dp13
+g4
+S'integer'
+p14
+sg6
+I7
+sg7
+S'INTEGER NOT NULL'
+p15
+ssS'id_cliente'
+p16
+(dp17
+g4
+S'reference cliente'
+p18
+sg6
+I3
+sg7
+S'INTEGER REFERENCES cliente(id) ON DELETE CASCADE'
+p19
+ssS'id'
+p20
+(dp21
+g4
+g20
+sg6
+I1
+sg7
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p22
+ssS'retencion'
+p23
+(dp24
+g4
+g5
+sg6
+I6
+sg7
+S'DOUBLE NOT NULL'
+p25
+ssS'tipo_iva'
+p26
+(dp27
+g4
+g5
+sg6
+I4
+sg7
+S'DOUBLE NOT NULL'
+p28
+ssS'total_bruto'
+p29
+(dp30
+g4
+g5
+sg6
+I9
+sg7
+S'DOUBLE NOT NULL'
+p31
+ssS'fecha'
+p32
+(dp33
+g4
+S'date'
+p34
+sg6
+I2
+sg7
+S'DATE NOT NULL'
+p35
+ssS'pagada'
+p36
+(dp37
+g4
+S'boolean'
+p38
+sg6
+I10
+sg7
+S'CHAR(1) NOT NULL'
+p39
+ss.
