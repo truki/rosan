@@ -1,0 +1,10 @@
+{{extend 'layout_inicio.html'}}
+<div class="account-container">
+	<center><h1>Rosan</h1></center>	
+    <div>
+        <a href="index.html"><img source="../../img/logo.png"></a>  
+    </div>	
+			
+		
+	
+</div> <!-- /account-container -->

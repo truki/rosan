@@ -7,6 +7,9 @@ def call(): return service()
 def index():
     response.flash = "Bienvenido a Rosan!"
     return dict()
+    
+def login():
+    return dict()
 
 def error():
     return dict()

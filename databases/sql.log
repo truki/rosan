@@ -1,4 +1,4 @@
-timestamp: 2012-07-30T07:54:24.269000
+timestamp: 2012-11-21T18:02:11.024215
 CREATE TABLE auth_user(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username CHAR(512),
@@ -13,63 +13,66 @@ CREATE TABLE auth_user(
     registration_id CHAR(512)
 );
 success!
-timestamp: 2012-07-30T07:54:24.530000
+timestamp: 2012-11-21T18:02:11.029244
 CREATE TABLE auth_group(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     role CHAR(512),
     description TEXT
 );
 success!
-timestamp: 2012-07-30T07:54:24.630000
+timestamp: 2012-11-21T18:02:11.033104
 CREATE TABLE auth_membership(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
-    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE
 );
 success!
-timestamp: 2012-07-30T07:54:24.749000
+timestamp: 2012-11-21T18:02:11.052523
 CREATE TABLE auth_permission(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE,
     name CHAR(512),
     table_name CHAR(512),
     record_id INTEGER
 );
 success!
-timestamp: 2012-07-30T07:54:24.875000
+timestamp: 2012-11-21T18:02:11.057904
 CREATE TABLE auth_event(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     time_stamp TIMESTAMP,
     client_ip CHAR(512),
-    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
     origin CHAR(512),
     description TEXT
 );
 success!
-timestamp: 2012-07-30T07:54:24.946000
+timestamp: 2012-11-21T18:02:11.063201
 CREATE TABLE auth_cas(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
     created_on TIMESTAMP,
     service CHAR(512),
     ticket CHAR(512),
     renew CHAR(1)
 );
 success!
-timestamp: 2012-07-30T08:25:41.698000
+timestamp: 2012-11-21T18:02:11.069981
 CREATE TABLE cliente(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     cif CHAR(9) NOT NULL,
     nombre CHAR(200) NOT NULL,
     direccion CHAR(200) NOT NULL,
-    localidad CHAR(100) NOT NULL
+    localidad CHAR(100) NOT NULL,
+    cod_postal CHAR(5) NOT NULL,
+    email CHAR(100) NOT NULL,
+    www CHAR(200) NOT NULL
 );
 success!
-timestamp: 2012-07-30T09:27:52.328000
+timestamp: 2012-11-21T18:02:11.075187
 CREATE TABLE factura(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     fecha DATE NOT NULL,
-    id_cliente INTEGER REFERENCES cliente(id) ON DELETE CASCADE,
+    id_cliente INTEGER REFERENCES cliente (id) ON DELETE CASCADE,
     tipo_iva DOUBLE NOT NULL,
     neto DOUBLE NOT NULL,
     retencion DOUBLE NOT NULL,
@@ -79,24 +82,29 @@ CREATE TABLE factura(
     pagada CHAR(1) NOT NULL DEFAULT 'F'
 );
 success!
-timestamp: 2012-07-30T09:30:32.051000
-CREATE TABLE articulo(
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    descripcion TEXT NOT NULL,
-    precio DOUBLE NOT NULL
-);
-success!
-timestamp: 2012-07-30T09:30:55.439000
+timestamp: 2012-11-21T18:02:11.078817
 CREATE TABLE factura_detalle(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    id_factura INTEGER REFERENCES factura(id) ON DELETE CASCADE,
+    id_factura INTEGER REFERENCES factura (id) ON DELETE CASCADE,
     articulo TEXT NOT NULL,
     precio DOUBLE NOT NULL,
     cantidad INTEGER NOT NULL,
     total_articulo DOUBLE NOT NULL
 );
 success!
-timestamp: 2012-11-06T15:27:48.164669
-ALTER TABLE cliente ADD www CHAR(200) NOT NULL;
-timestamp: 2012-11-06T15:30:13.263981
-ALTER TABLE cliente ADD www CHAR(200) NOT NULL;
+timestamp: 2012-11-21T18:02:11.083334
+CREATE TABLE articulo(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    descripcion TEXT NOT NULL,
+    precio DOUBLE NOT NULL
+);
+success!
+timestamp: 2012-11-21T18:02:11.087610
+CREATE TABLE almacen(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_articulo INTEGER REFERENCES articulo (id) ON DELETE CASCADE,
+    cantidad INTEGER NOT NULL DEFAULT 0,
+    max INTEGER NOT NULL DEFAULT 0,
+    min INTEGER NOT NULL DEFAULT 0
+);
+success!

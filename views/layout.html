@@ -42,6 +42,15 @@
   <!-- include stylesheets -->
   {{
   response.files.append(URL('static','css/skeleton.css'))
+  response.files.append(URL('static','css/bootstrap.min.css'))
+  response.files.append(URL('static','css/bootstrap-responsive.min.css'))
+  response.files.append(URL('static','css/font-awesome.css'))
+  response.files.append(URL('static','css/base-admin.css'))
+  response.files.append(URL('static','css/pages/signin.css'))
+  response.files.append(URL('http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'))
+
+
+
   response.files.append(URL('static','css/web2py.css'))
   if response.menu:
      response.files.append(URL('static','css/superfish.css'))

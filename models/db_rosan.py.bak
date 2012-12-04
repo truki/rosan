@@ -63,7 +63,7 @@ dbRosan.define_table("almacen",
       SQLField("id_articulo", dbRosan.articulo),
       SQLField("cantidad", "integer", notnull=True, default=0),
       SQLField("max", "integer", notnull=True, default=0),
-      SQLField("min, "integer", notnull=True, default=0))
+      SQLField("min", "integer", notnull=True, default=0))
       
       
 

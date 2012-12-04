@@ -18,6 +18,7 @@ def nuevoCliente():
     grid = SQLFORM.grid(dbRosan.cliente)
     if form.process().accepted:
         response.flash = 'Insertado'
+        grid = SQLFORM.grid(dbRosan.cliente)
     elif form.errors:
         response.flash = 'Ha habido errores'
     else:
