@@ -20,7 +20,7 @@ dbRosan.define_table("cliente",
       SQLField("localidad", "string", length=100, notnull=True, default=None),
       SQLField("cod_postal", "string", length=5, notnull=True, default=None),
       SQLField("email", "string", length=100, notnull=True, default=None),
-      SQLField("www", "string", length=200, notnull=True, default=None)
+      SQLField("www","string", length=200, notnull=True, default=None)
       ) 
 
 """
