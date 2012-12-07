@@ -1,10 +1,107 @@
-{{extend 'layout_inicio.html'}}
-<div class="account-container">
-	<center><h1>Rosan</h1></center>	
-    <div id="inicio">
-        <a href="index.html"><img source="../../img/logo.png"></a>  
-    </div>	
-			
+{{extend 'layout_login.html'}}
+	
+	<div class="navbar navbar-fixed-top">
+	
+	<div class="navbar-inner">
 		
+		<div class="container">
+			
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
+			
+			<a class="brand" href="./">
+				iRosan			
+			</a>		
+			
+			<div class="nav-collapse">
+				<ul class="nav pull-right">
+					
+					<li class="">						
+						<a href="./signup.html" class="">
+							Crea una cuenta
+						</a>
+						
+					</li>
+					
+					<li class="">						
+						<a href="./" class="">
+							<i class="icon-chevron-left"></i>
+							Back to Homepage
+						</a>
+						
+					</li>
+				</ul>
+				
+			</div><!--/.nav-collapse -->	
+	
+		</div> <!-- /container -->
+		
+	</div> <!-- /navbar-inner -->
+	
+</div> <!-- /navbar -->
+
+
+
+<div class="account-container">
+	
+	<div class="content clearfix">
+		
+		<form action="./" method="post">
+		
+			<h1>Log in</h1>		
+			
+			<div class="login-fields">
+				
+				<p>Utiliza tu cuenta personal:</p>
+				
+				<div class="field">
+					<label for="username">Usuario:</label>
+					<input type="text" id="username" name="username" value="" placeholder="Usuario" class="login username-field" />
+				</div> <!-- /field -->
+				
+				<div class="field">
+					<label for="password">Contraseña:</label>
+					<input type="password" id="password" name="password" value="" placeholder="Contraseña" class="login password-field"/>
+				</div> <!-- /password -->
+				
+			</div> <!-- /login-fields -->
+			
+			<div class="login-actions">
+				
+				<span class="login-checkbox">
+					<input id="Field" name="Field" type="checkbox" class="field login-checkbox" value="First Choice" tabindex="4" />
+					<label class="choice" for="Field">Keep me signed in</label>
+				</span>
+									
+				<button class="button btn btn-warning btn-large">Sign In</button>
+				
+			</div> <!-- .actions -->
+			
+			<div class="login-social">
+				<p>Login utilizando una cuenta de red social:</p>
+				
+				<div class="twitter">
+					<a href="#" class="btn_1">Login en Twitter</a>				
+				</div>
+				
+				<div class="fb">
+					<a href="#" class="btn_2">Login en Facebook</a>				
+				</div>
+			</div>
+			
+		</form>
+		
+	</div> <!-- /content -->
 	
 </div> <!-- /account-container -->
+
+
+<!-- Text Under Box -->
+<div class="login-extra">
+	¿No tienes una cuenta? <a href="./signup.html">Sign Up</a><br/>
+	Recordar la <a href="#">Contraseña</a>
+</div> <!-- /login-extra -->
+
