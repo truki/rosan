@@ -8,7 +8,7 @@ when you use generic appadmin so please remove all fiealds you don't need not re
 """
 database class object creation
 """
-dbRosan = SQLDB("mongodb://localhost:27017/rosan")
+dbRosan = SQLDB("sqlite://dbRosan.db")
 
 """
 Tabla de clientes
