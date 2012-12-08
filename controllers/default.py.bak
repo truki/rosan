@@ -7,6 +7,16 @@ def call(): return service()
 def index():
     response.flash = "Bienvenido a Rosan!"
     return dict()
+    
+### Controlador de la vista frontend.html  ###
+    
+    def frontend():
+    response.flash = "Frontend de Rosan"
+    return dict()
+    
+    
+def login():
+    return dict()
 
 def error():
     return dict()
