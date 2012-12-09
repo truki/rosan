@@ -9,9 +9,22 @@ def index():
     return dict()
         
 def frontend():
+    return dict()
+
+def clientes():
+    return dict()  
     
+def facturas():
+    return dict()
+
+def presupuestos():
+    return dict()  
+    
+def articulos():
     return dict()
     
+def contabilidad():
+    return dict()
     
 def login():
     return dict()
