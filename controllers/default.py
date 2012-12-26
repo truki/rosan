@@ -12,7 +12,10 @@ def frontend():
     return dict()
 
 def clientes():
-    return dict()  
+    form = SQLFORM(dbRosan.cliente)
+    if form.process().accepted:
+        response.flash = 'cliente insertado'
+    return dict(form=form)  
     
 def facturas():
     return dict()

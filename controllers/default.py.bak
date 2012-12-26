@@ -12,7 +12,8 @@ def frontend():
     return dict()
 
 def clientes():
-    return dict()  
+    form = SQLFORM(dbRosan.cliente)
+    return dict(form=form)  
     
 def facturas():
     return dict()
