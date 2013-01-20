@@ -49,12 +49,26 @@ dbRosan.define_table("factura_detalle",
       SQLField("cantidad", "integer", notnull=True, default=None),
       SQLField("total_articulo", "double", notnull=True, default=None))  
            
+
+"""
+Tabla con los proveedores
+"""
+dbRosan.define_table("proveedor",
+      SQLField("nombre", "string", length=100, notnull=False, default=None),
+      SQLField("cif", "string", length=9, notnull=True, default=None),
+      SQLField("direccion", "string", length=200, notnull=True, default=None),
+      SQLField("email", "string", length=100, notnull=True, default=None))
+
+
+
 """
 Tabla articulos
 """
 dbRosan.define_table("articulo",
+      SQLField("titulo", "string", length=100, notnull=False, default=None),
       SQLField("descripcion", "text", notnull=True, default=None),
-      SQLField("precio", "double", notnull=True, default=None)) 
+      SQLField("precio", "double", notnull=True, default=None),
+      SQLField("id_proveedor", dbRosan.proveedor)) 
       
 """
 Tabla almacen, contiene los stocks de los articulos
@@ -74,4 +88,6 @@ dbRosan.factura.id_cliente.requires=IS_IN_DB(dbRosan, 'cliente.id', '%(nombre)s'
 
 dbRosan.factura_detalle.id_factura.requires=IS_IN_DB(dbRosan, 'factura.id')
 
-dbRosan.almacen.id_articulo.requires=IS_IN_DB(dbRosan, 'articulo.id' '%(nombre)s')
+dbRosan.almacen.id_articulo.requires=IS_IN_DB(dbRosan, 'articulo.id', '%(nombre)s')
+
+dbRosan.articulo.id_proveedor.requires=IS_IN_DB(dbRosan, 'proveedor.id', '%(nombre)s')

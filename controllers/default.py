@@ -17,18 +17,6 @@ def clientes():
         response.flash = 'cliente insertado'
     return dict(form=form)  
     
-def facturas():
-    return dict()
-
-def presupuestos():
-    return dict()  
-    
-def articulos():
-    return dict()
-    
-def contabilidad():
-    return dict()
-    
 def login():
     return dict()
 
@@ -48,16 +36,3 @@ def nuevoCliente():
     else:
         response.flash = 'Rellene el formulario para insertar un cliente'
     return dict(form=form, grid=grid)
-
-def nuevaFactura():
-    # se introduce el cliente, fecha, descuento, retencion y cualquier otro valor global de la factura
-    # se podría marcar como pagada.
-    response.flash = "Introduce los datos de la nueva factura"
-
-    return dict()
-
-
-def nuevoPresupuesto():
-
-    response.flash = "Introduce los datos del nuevo presupuesto"
-    return dict()

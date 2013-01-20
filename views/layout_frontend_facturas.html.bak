@@ -175,7 +175,7 @@
           <li class="dropdown">         
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
               <i class="icon-cog"></i>
-              <span>Congiguración</span>
+              <span>Configuración</span>
               <b class="caret"></b>
             </a>  
           

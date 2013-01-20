@@ -1,4 +1,4 @@
-timestamp: 2012-11-21T18:02:11.024215
+timestamp: 2013-01-20T13:03:12.028930
 CREATE TABLE auth_user(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username CHAR(512),
@@ -13,21 +13,21 @@ CREATE TABLE auth_user(
     registration_id CHAR(512)
 );
 success!
-timestamp: 2012-11-21T18:02:11.029244
+timestamp: 2013-01-20T13:03:12.033460
 CREATE TABLE auth_group(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     role CHAR(512),
     description TEXT
 );
 success!
-timestamp: 2012-11-21T18:02:11.033104
+timestamp: 2013-01-20T13:03:12.037112
 CREATE TABLE auth_membership(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
     group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE
 );
 success!
-timestamp: 2012-11-21T18:02:11.052523
+timestamp: 2013-01-20T13:03:12.041602
 CREATE TABLE auth_permission(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE,
@@ -36,7 +36,7 @@ CREATE TABLE auth_permission(
     record_id INTEGER
 );
 success!
-timestamp: 2012-11-21T18:02:11.057904
+timestamp: 2013-01-20T13:03:12.048307
 CREATE TABLE auth_event(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     time_stamp TIMESTAMP,
@@ -46,7 +46,7 @@ CREATE TABLE auth_event(
     description TEXT
 );
 success!
-timestamp: 2012-11-21T18:02:11.063201
+timestamp: 2013-01-20T13:03:12.054534
 CREATE TABLE auth_cas(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
@@ -56,7 +56,7 @@ CREATE TABLE auth_cas(
     renew CHAR(1)
 );
 success!
-timestamp: 2012-11-21T18:02:11.069981
+timestamp: 2013-01-20T13:03:12.061736
 CREATE TABLE cliente(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     cif CHAR(9) NOT NULL,
@@ -68,7 +68,7 @@ CREATE TABLE cliente(
     www CHAR(200) NOT NULL
 );
 success!
-timestamp: 2012-11-21T18:02:11.075187
+timestamp: 2013-01-20T13:03:12.068116
 CREATE TABLE factura(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     fecha DATE NOT NULL,
@@ -82,7 +82,7 @@ CREATE TABLE factura(
     pagada CHAR(1) NOT NULL DEFAULT 'F'
 );
 success!
-timestamp: 2012-11-21T18:02:11.078817
+timestamp: 2013-01-20T13:03:12.071774
 CREATE TABLE factura_detalle(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     id_factura INTEGER REFERENCES factura (id) ON DELETE CASCADE,
@@ -92,14 +92,25 @@ CREATE TABLE factura_detalle(
     total_articulo DOUBLE NOT NULL
 );
 success!
-timestamp: 2012-11-21T18:02:11.083334
-CREATE TABLE articulo(
+timestamp: 2013-01-20T13:03:12.075971
+CREATE TABLE proveedor(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    descripcion TEXT NOT NULL,
-    precio DOUBLE NOT NULL
+    nombre CHAR(100),
+    cif CHAR(9) NOT NULL,
+    direccion CHAR(200) NOT NULL,
+    email CHAR(100) NOT NULL
 );
 success!
-timestamp: 2012-11-21T18:02:11.087610
+timestamp: 2013-01-20T13:03:12.080428
+CREATE TABLE articulo(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    titulo CHAR(100),
+    descripcion TEXT NOT NULL,
+    precio DOUBLE NOT NULL,
+    id_proveedor INTEGER REFERENCES proveedor (id) ON DELETE CASCADE
+);
+success!
+timestamp: 2013-01-20T13:03:12.084519
 CREATE TABLE almacen(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     id_articulo INTEGER REFERENCES articulo (id) ON DELETE CASCADE,
