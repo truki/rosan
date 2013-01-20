@@ -40,7 +40,7 @@ S'Chrome'
 p20
 sssS'_formkey[cliente/create]'
 p21
-S'e34f5869-3d48-4645-888c-157f24e8b0a6'
+S'e632330d-808a-4b66-9ea4-ba7dbd6c8428'
 p22
 sS'_formkey[articulo/create]'
 p23
@@ -48,13 +48,13 @@ S'6d2366ae-a8e9-42b1-bced-722dfe22ac76'
 p24
 sS'_session_hash'
 p25
-S'135f2df2699bddde79d9d37cdddfddcd'
+S'ef8418842d91cd23091eb250a326dbec'
 p26
 sS'last_orderby'
 p27
 NsS'_web2py_grid_referrer_web2py_grid'
 p28
-S'/rosan/default/nuevoCliente'
+S'/rosan/clientes/nuevoCliente'
 p29
 sS'_formkey[proveedor/create]'
 p30

@@ -1,0 +1,24 @@
+{{extend 'layout_frontend_clientes.html'}}
+<div class="main">
+    <div class="main-inner">
+        <div class="container">
+        	<div class="row">
+        		<div class="span12">
+        			{{if errores != '':}}
+        				<div class="alert alert-error">
+        					<button type="button" class="close" data-dismiss="alert">x</button>
+        					{{=errores}}
+        				</div>
+        			{{elif info != '':}}
+        				<div class="alert alert-info">
+        					<button type="button" class="close" data-dismiss="alert">x</button>
+        					{{=info}}        					
+        				</div>
+        			{{pass}}
+					{{=form}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>	
+

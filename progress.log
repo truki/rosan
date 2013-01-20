@@ -172,3 +172,6 @@
 [2013-01-20 14:12:13] DELETE rosan/views/default/nuevoPresupuesto.html: -3
 [2013-01-20 14:15:26] EDIT rosan/controllers/default.py: -16
 [2013-01-20 14:15:40] EDIT rosan/controllers/default.py: 0
+[2013-01-20 17:42:18] CREATE clientes/eliminar.html: 0
+[2013-01-20 18:40:37] CREATE clientes/nuevoCliente.html: 0
+[2013-01-20 18:40:40] EDIT rosan/views/clientes/nuevoCliente.html: 0

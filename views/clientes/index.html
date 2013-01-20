@@ -14,119 +14,55 @@
 								<thead>
 								<tr>								
 									<th>Nombre</th>
-									<th>NIF</th>
+									<th>CIF</th>
 									<th>@email</th>
                                     <th>Acciones</th>								
 								</tr>
 								</thead>
-							<tbody>
-							<tr>
-								<td class="description"><a href="http://google.com">http://google.com</a></td>
-								<td class="value"><span>1123</span></td>
-								<td class="email"><span>trukise@gmail.com</span></td>
-								<td class="td-actions">
-										<a href="#myModal" class="btn btn-small btn-warning">
-											<i class="btn-icon-only icon-ok"></i>										
-										</a>
-										<!-- Modal -->
-										
-										<a href="#myModal" class="btn btn-small" data-toggle="modal">
-											<i class="btn-icon-only icon-remove"></i>										
-										</a>
-										<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                        <div class="modal-header">
-                                        	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                        	<h3 id="myModalLabel">¿Quieres eliminar este cliente?</h3>
-                                        </div>
-                                        <div class="modal-body">
-                                        	<p>¿estás seguro?…</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                        	<button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
-                                            <a href="./clientes/" class="btn btn-primary">Eliminar</a>
-                                        </div>
-                                        </div>
-								</td>
-							</tr>
-							<tr>
-								<td class="description"><a href="http://yahoo.com">http://yahoo.com</a></td>
-								<td class="value"><span>927</span></td>
-								<td class="email"><span>trukise@gmail.com</span></td>
-								<td class="td-actions">
-										<a href="javascript:;" class="btn btn-small btn-warning">
-											<i class="btn-icon-only icon-ok"></i>										
-										</a>
-										
-										<a href="javascript:;" class="btn btn-small">
-											<i class="btn-icon-only icon-remove"></i>										
-										</a>
-								</td>
-							</tr>
-							<tr>
-								<td class="description"><a href="http://themeforest.net">http://themeforest.net</a></td>
-								<td class="value"><span>834</span></td>
-								<td class="email"><span>trukise@gmail.com</span></td>
-								<td class="td-actions">
-										<a href="javascript:;" class="btn btn-small btn-warning">
-											<i class="btn-icon-only icon-ok"></i>										
-										</a>
-										
-										<a href="javascript:;" class="btn btn-small">
-											<i class="btn-icon-only icon-remove"></i>										
-										</a>
-								</td>
-							</tr>
-							<tr>
-								<td class="description"><a href="http://codecanyon.net">codecanyon.net</a></td>
-								<td class="value"><span>625</span></td>
-								<td class="email"><span>trukise@gmail.com</span></td>
-								<td class="td-actions">
-										<a href="javascript:;" class="btn btn-small btn-warning">
-											<i class="btn-icon-only icon-ok"></i>										
-										</a>
-										
-										<a href="javascript:;" class="btn btn-small">
-											<i class="btn-icon-only icon-remove"></i>										
-										</a>
-								</td>
-							</tr>
-							<tr>
-								<td class="description"><a href="http://graphicriver.net">http://graphicriver.net</a></td>
-								<td class="value"><span>593</span></td>
-								<td class="email"><span>trukise@gmail.com</span></td>
-								<td class="td-actions">
-										<a href="javascript:;" class="btn btn-small btn-warning">
-											<i class="btn-icon-only icon-ok"></i>										
-										</a>
-										
-										<a href="javascript:;" class="btn btn-small">
-											<i class="btn-icon-only icon-remove"></i>										
-										</a>
-								</td>
-							</tr>
-							<tr>
-								<td class="description"><a href="http://bing.com">http://bing.com</a></td>
-								<td class="value"><span>324</span></td>
-								<td class="email"><span>trukise@gmail.com</span></td>
-								<td class="td-actions">
-										<a href="javascript:;" class="btn btn-small btn-warning">
-											<i class="btn-icon-only icon-ok"></i>										
-										</a>
-										
-										<a href="javascript:;" class="btn btn-small">
-											<i class="btn-icon-only icon-remove"></i>										
-										</a>
-								</td>
-							</tr>	
-						</tbody>
-						</table>	
+								<tbody>
+									{{for cliente in clientes:}}
+										<tr>
+											<td class="description">{{=cliente.nombre}}</td>
+											<td class="cif">{{=cliente.cif}}</td>
+											<td class="email">{{=cliente.email}}</td>
+											<td class="td-actions">
+												<a href="" class="btn btn-small btn-warning">
+													<i class="btn-icon-only icon-ok"></i>										
+												</a>
+												<!-- Modal -->
+												
+												<a href="#myModal{{=cliente.id}}" class="btn btn-small" data-toggle="modal">
+													<i class="btn-icon-only icon-remove"></i>										
+												</a>
+												<div id="myModal{{=cliente.id}}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			                                        <div class="modal-header">
+			                                        	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			                                        	<h3 id="myModalLabel">¿Quieres eliminar este cliente?</h3>
+			                                        </div>
+			                                        <div class="modal-body">
+			                                        	<p>¿estás seguro?…</p>
+			                                        </div>
+			                                        <div class="modal-footer">
+			                                        	<button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+			                                            <a href="/rosan/clientes/eliminar/{{=cliente.id}}" class="btn btn-primary">Eliminar</a>
+			                                        </div>
+		                                        </div>
+											</td>
+
+										</tr>
+
+									{{pass}}
+								</tbody>
+							</table>	
 						</div> <!-- .widget-content -->
 					</div> <!-- .widget widget-table -->
-                </div>
-                <div class="span3">
-                	<div class="widget widget-plain">
-					<div class="widget-content">
-						<a href="javascript:;" class="btn btn-large btn-warning btn-support-ask">Nuevo cliente</a>	
+
+
+                	</div>
+                	<div class="span3">
+                		<div class="widget widget-plain">
+						<div class="widget-content">
+							<a href="/rosan/clientes/nuevoCliente" class="btn btn-large btn-warning btn-support-ask">Nuevo cliente</a>	
 					</div> <!-- /widget-content -->
 					</div>
                 </div>
