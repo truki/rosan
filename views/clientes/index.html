@@ -40,7 +40,7 @@
 			                                        	<h3 id="myModalLabel">¿Quieres eliminar este cliente?</h3>
 			                                        </div>
 			                                        <div class="modal-body">
-			                                        	<p>¿estás seguro?…</p>
+			                                        	<p>Vas a eliminar el cliente <b>{{=cliente.nombre}}</b></p>
 			                                        </div>
 			                                        <div class="modal-footer">
 			                                        	<button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
@@ -60,12 +60,14 @@
 
                 	</div>
                 	<div class="span3">
-                		<div class="widget widget-plain">
+                		<div class="widget-header">
+							<i class="icon-cog"></i>
+	        				<h3>Opciones</h3>
+						</div>
 						<div class="widget-content">
 							<a href="/rosan/clientes/nuevoCliente" class="btn btn-large btn-warning btn-support-ask">Nuevo cliente</a>	
-					</div> <!-- /widget-content -->
-					</div>
-                </div>
+						</div> <!-- /widget-content -->
+                	</div>
                 
        		</div>
         </div>     

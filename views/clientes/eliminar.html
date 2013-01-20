@@ -1,2 +1,28 @@
 {{extend 'layout_frontend_clientes.html'}}
-<h1>Se ha eliminado el cliente: {{=id}}, con nombre: {{=nombre}}</h1>
+<div class="main">
+    <div class="main-inner">
+        <div class="container">
+        	<div class="row">
+        		<div class="span12">
+        			<div class="widget">
+        				<div class="widget-header">
+        					<i class="icon-trash"></i>
+        					<h3>Cliente eliminado</h3>
+        				</div>
+        				<div class="widget-content">
+							<div class="alert alert-error">
+							    <button type="button" class="close" data-dismiss="alert">x</button>
+							    Elimininado el cliente <b>{{=nombre}}</b>
+							</div>
+							<div class="widget">
+								<a href="/rosan/clientes/index" class="btn btn-large btn-warning btn-support-ask">Volver a clientes</a>	
+							</div>	
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>	
+
+
