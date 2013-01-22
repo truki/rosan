@@ -26,12 +26,12 @@
 											<td class="cif">{{=cliente.cif}}</td>
 											<td class="email">{{=cliente.email}}</td>
 											<td class="td-actions">
-												<a href="" class="btn btn-small btn-warning">
-													<i class="btn-icon-only icon-ok"></i>										
+												<a href="" class="btn btn-small btn-primary">
+													<i class="btn-icon-only icon-eye-open"></i>										
 												</a>
 												<!-- Modal -->
 												
-												<a href="#myModal{{=cliente.id}}" class="btn btn-small" data-toggle="modal">
+												<a href="#myModal{{=cliente.id}}" class="btn btn-small btn-danger" data-toggle="modal">
 													<i class="btn-icon-only icon-remove"></i>										
 												</a>
 												<div id="myModal{{=cliente.id}}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -44,7 +44,7 @@
 			                                        </div>
 			                                        <div class="modal-footer">
 			                                        	<button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
-			                                            <a href="/rosan/clientes/eliminar/{{=cliente.id}}" class="btn btn-primary">Eliminar</a>
+			                                            <a href="/rosan/clientes/eliminar/{{=cliente.id}}" class="btn btn-danger">Eliminar</a>
 			                                        </div>
 		                                        </div>
 											</td>
@@ -60,13 +60,11 @@
 
                 	</div>
                 	<div class="span3">
-                		<div class="widget-header">
-							<i class="icon-cog"></i>
-	        				<h3>Opciones</h3>
+                		<div class="widget widget-plain">
+							<div class="widget-content">
+								<a href="/rosan/clientes/nuevoCliente" class="btn btn-large btn-warning btn-support-ask">Nuevo cliente</a>	
+							</div> <!-- /widget-content -->
 						</div>
-						<div class="widget-content">
-							<a href="/rosan/clientes/nuevoCliente" class="btn btn-large btn-warning btn-support-ask">Nuevo cliente</a>	
-						</div> <!-- /widget-content -->
                 	</div>
                 
        		</div>

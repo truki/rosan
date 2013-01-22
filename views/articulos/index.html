@@ -1,3 +1,73 @@
-{{extend 'layout.html'}}
-<h1>Esta es la plantilla articulos/index.html</h1>
-{{=BEAUTIFY(response._vars)}}
+{{extend 'layout_frontend_articulos.html'}}
+<div class="main">
+    <div class="main-inner">
+        <div class="container">
+        	<div class="row">
+        		<div class="span9">
+					<div class="widget widget-table">	
+						<div class="widget-header">
+							<span class="icon-user"></span>
+							<h3>Artículos</h3>
+						</div> <!-- .widget-header -->
+						<div class="widget-content">
+							<table class="table table-bordered table-striped">
+								<thead>
+								<tr>								
+									<th>Nombre</th>
+									<th>Proveedor</th>
+									<th>Precio</th>
+                                    <th>Acciones</th>								
+								</tr>
+								</thead>
+								<tbody>
+									{{for articulo in articulos:}}
+										<tr>
+											<td class="nombre">{{=articulo.titulo}}</td>
+											<td class="proveedor">{{=articulo.id_proveedor}}</td>
+											<td class="Precio">{{=articulo.precio}}</td>
+											<td class="td-actions">
+												<a href="" class="btn btn-small btn-primary">
+													<i class="btn-icon-only icon-eye-open"></i>					
+												</a>
+												<!-- Modal -->
+												
+												<a href="#myModal{{=articulo.id}}" class="btn btn-small btn-danger " data-toggle="modal">
+													<i class="btn-icon-only icon-remove"></i>										
+												</a>
+												<div id="myModal{{=articulo.id}}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			                                        <div class="modal-header">
+			                                        	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			                                        	<h3 id="myModalLabel">¿Quieres eliminar este artículo?</h3>
+			                                        </div>
+			                                        <div class="modal-body">
+			                                        	<p>Vas a eliminar el artículo <b>{{=articulo.titulo}}</b></p>
+			                                        </div>
+			                                        <div class="modal-footer">
+			                                        	<button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+			                                            <a href="/rosan/articulos/eliminar/{{=articulo.id}}" class="btn btn-danger">Eliminar</a>
+			                                        </div>
+		                                        </div>
+											</td>
+
+										</tr>
+
+									{{pass}}
+								</tbody>
+							</table>	
+						</div> <!-- .widget-content -->
+					</div> <!-- .widget widget-table -->
+
+
+                	</div>
+                	<div class="span3">
+                		<div class="widget widget-plain">
+							<div class="widget-content">
+								<a href="/rosan/clientes/nuevoCliente" class="btn btn-large btn-warning btn-support-ask">Nuevo artículo</a>	
+							</div> <!-- /widget-content -->
+						</div>
+                	</div>
+                
+       		</div>
+        </div>     
+	</div>
+</div>
