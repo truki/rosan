@@ -24,6 +24,26 @@ dbRosan.define_table("cliente",
       ) 
 
 """
+Tabla con los proveedores
+"""
+dbRosan.define_table("proveedor",
+      SQLField("nombre", "string", length=100, notnull=False, default=None),
+      SQLField("cif", "string", length=9, notnull=True, default=None),
+      SQLField("direccion", "string", length=200, notnull=True, default=None),
+      SQLField("email", "string", length=100, notnull=True, default=None))
+
+
+"""
+Tabla articulos
+"""
+dbRosan.define_table("articulo",
+      SQLField("titulo", "string", length=100, notnull=False, default=None),
+      SQLField("descripcion", "text", notnull=True, default=None),
+      SQLField("precio", "double", notnull=True, default=None),
+      SQLField("id_proveedor", dbRosan.proveedor)) 
+      
+
+"""
 Tabla facturas
 """
 dbRosan.define_table("factura",
@@ -102,27 +122,6 @@ dbRosan.define_table("factura_detalle_borrador",
       SQLField("precio", "double", notnull=True, default=None),
       SQLField("cantidad", "integer", notnull=True, default=None),
       SQLField("total_articulo", "double", notnull=True, default=None)) 
-           
-
-"""
-Tabla con los proveedores
-"""
-dbRosan.define_table("proveedor",
-      SQLField("nombre", "string", length=100, notnull=False, default=None),
-      SQLField("cif", "string", length=9, notnull=True, default=None),
-      SQLField("direccion", "string", length=200, notnull=True, default=None),
-      SQLField("email", "string", length=100, notnull=True, default=None))
-
-
-
-"""
-Tabla articulos
-"""
-dbRosan.define_table("articulo",
-      SQLField("titulo", "string", length=100, notnull=False, default=None),
-      SQLField("descripcion", "text", notnull=True, default=None),
-      SQLField("precio", "double", notnull=True, default=None),
-      SQLField("id_proveedor", dbRosan.proveedor)) 
       
 """
 Tabla almacen, contiene los stocks de los articulos

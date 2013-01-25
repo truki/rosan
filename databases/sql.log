@@ -119,3 +119,55 @@ CREATE TABLE almacen(
     min INTEGER NOT NULL DEFAULT 0
 );
 success!
+timestamp: 2013-01-25T23:58:19.812738
+ALTER TABLE factura_detalle ADD id_articulo INTEGER REFERENCES articulo (id) ON DELETE CASCADE;
+timestamp: 2013-01-25T23:58:19.859167
+CREATE TABLE factura_temp(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fecha DATE NOT NULL,
+    id_cliente INTEGER REFERENCES cliente (id) ON DELETE CASCADE,
+    tipo_iva DOUBLE NOT NULL,
+    neto DOUBLE NOT NULL,
+    retencion DOUBLE NOT NULL,
+    descuento INTEGER NOT NULL,
+    total_iva DOUBLE NOT NULL,
+    total_bruto DOUBLE NOT NULL,
+    pagada CHAR(1) NOT NULL DEFAULT 'F'
+);
+success!
+timestamp: 2013-01-25T23:58:19.872974
+CREATE TABLE factura_detalle_temp(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_factura INTEGER REFERENCES factura_temp (id) ON DELETE CASCADE,
+    id_articulo INTEGER REFERENCES articulo (id) ON DELETE CASCADE,
+    articulo TEXT NOT NULL,
+    precio DOUBLE NOT NULL,
+    cantidad INTEGER NOT NULL,
+    total_articulo DOUBLE NOT NULL
+);
+success!
+timestamp: 2013-01-25T23:58:19.879397
+CREATE TABLE factura_borrador(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fecha DATE NOT NULL,
+    id_cliente INTEGER REFERENCES cliente (id) ON DELETE CASCADE,
+    tipo_iva DOUBLE NOT NULL,
+    neto DOUBLE NOT NULL,
+    retencion DOUBLE NOT NULL,
+    descuento INTEGER NOT NULL,
+    total_iva DOUBLE NOT NULL,
+    total_bruto DOUBLE NOT NULL,
+    pagada CHAR(1) NOT NULL DEFAULT 'F'
+);
+success!
+timestamp: 2013-01-25T23:58:19.883567
+CREATE TABLE factura_detalle_borrador(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_factura INTEGER REFERENCES factura_borrador (id) ON DELETE CASCADE,
+    id_articulo INTEGER REFERENCES articulo (id) ON DELETE CASCADE,
+    articulo TEXT NOT NULL,
+    precio DOUBLE NOT NULL,
+    cantidad INTEGER NOT NULL,
+    total_articulo DOUBLE NOT NULL
+);
+success!

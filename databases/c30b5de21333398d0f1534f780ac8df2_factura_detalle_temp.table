@@ -1,5 +1,5 @@
 (dp1
-S'id_factura'
+S'total_articulo'
 p2
 (dp3
 S'length'
@@ -10,55 +10,21 @@ p5
 I00
 sS'sortable'
 p6
-I2
+I7
 sS'sql'
 p7
-S'INTEGER REFERENCES factura (id) ON DELETE CASCADE'
+S'DOUBLE NOT NULL'
 p8
 sS'notnull'
 p9
-I00
+I01
 sS'type'
 p10
-S'reference factura'
+S'double'
 p11
-ssS'articulo'
+ssS'cantidad'
 p12
 (dp13
-g4
-I32768
-sg5
-I00
-sg6
-I4
-sg7
-S'TEXT NOT NULL'
-p14
-sg9
-I01
-sg10
-S'text'
-p15
-ssS'total_articulo'
-p16
-(dp17
-g4
-I512
-sg5
-I00
-sg6
-I7
-sg7
-S'DOUBLE NOT NULL'
-p18
-sg9
-I01
-sg10
-S'double'
-p19
-ssS'cantidad'
-p20
-(dp21
 g4
 I512
 sg5
@@ -67,32 +33,15 @@ sg6
 I6
 sg7
 S'INTEGER NOT NULL'
-p22
+p14
 sg9
 I01
 sg10
 S'integer'
-p23
-ssS'id_articulo'
-p24
-(dp25
-g4
-I512
-sg5
-I00
-sg6
-I3
-sg7
-S'INTEGER REFERENCES articulo (id) ON DELETE CASCADE'
-p26
-sg9
-I00
-sg10
-S'reference articulo'
-p27
+p15
 ssS'precio'
-p28
-(dp29
+p16
+(dp17
 g4
 I512
 sg5
@@ -101,11 +50,62 @@ sg6
 I5
 sg7
 S'DOUBLE NOT NULL'
-p30
+p18
 sg9
 I01
 sg10
-g19
+g11
+ssS'id_factura'
+p19
+(dp20
+g4
+I512
+sg5
+I00
+sg6
+I2
+sg7
+S'INTEGER REFERENCES factura_temp (id) ON DELETE CASCADE'
+p21
+sg9
+I00
+sg10
+S'reference factura_temp'
+p22
+ssS'articulo'
+p23
+(dp24
+g4
+I32768
+sg5
+I00
+sg6
+I4
+sg7
+S'TEXT NOT NULL'
+p25
+sg9
+I01
+sg10
+S'text'
+p26
+ssS'id_articulo'
+p27
+(dp28
+g4
+I512
+sg5
+I00
+sg6
+I3
+sg7
+S'INTEGER REFERENCES articulo (id) ON DELETE CASCADE'
+p29
+sg9
+I00
+sg10
+S'reference articulo'
+p30
 ssS'id'
 p31
 (dp32
@@ -121,6 +121,5 @@ p33
 sg9
 I00
 sg10
-S'id'
-p34
+g31
 ss.
