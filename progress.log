@@ -175,3 +175,5 @@
 [2013-01-20 17:42:18] CREATE clientes/eliminar.html: 0
 [2013-01-20 18:40:37] CREATE clientes/nuevoCliente.html: 0
 [2013-01-20 18:40:40] EDIT rosan/views/clientes/nuevoCliente.html: 0
+[2013-01-25 21:29:28] EDIT rosan/models/db_rosan.py: 22
+[2013-01-25 21:37:13] EDIT rosan/models/db_rosan.py: 25

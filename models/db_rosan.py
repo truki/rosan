@@ -44,10 +44,64 @@ Table con el detalle de las facturas
 """
 dbRosan.define_table("factura_detalle",
       SQLField("id_factura", dbRosan.factura),
+      SQLField("id_articulo", dbRosan.articulo),
       SQLField("articulo", "text", notnull=True, default=None),
       SQLField("precio", "double", notnull=True, default=None),
       SQLField("cantidad", "integer", notnull=True, default=None),
       SQLField("total_articulo", "double", notnull=True, default=None))  
+           
+
+"""
+Tabla facturas temporal
+"""
+dbRosan.define_table("factura_temp",
+      SQLField("fecha", "date", notnull=True, default=None),
+      SQLField("id_cliente", dbRosan.cliente),
+      SQLField("tipo_iva", "double", notnull=True, default=None),
+      SQLField("neto", "double", notnull=True, default=None),
+      SQLField("retencion", "double", notnull=True, default=None),
+      SQLField("descuento", "integer", notnull=True, default=None),
+      SQLField("total_iva", "double", notnull=True, default=None),
+      SQLField("total_bruto", "double", notnull=True, default=None),
+      SQLField("pagada", "boolean", notnull=True, default=False)) 
+
+
+
+"""
+Table con el detalle de las facturas temporales
+"""
+dbRosan.define_table("factura_detalle_temp",
+      SQLField("id_factura", dbRosan.factura_temp),
+      SQLField("id_articulo", dbRosan.articulo),
+      SQLField("articulo", "text", notnull=True, default=None),
+      SQLField("precio", "double", notnull=True, default=None),
+      SQLField("cantidad", "integer", notnull=True, default=None),
+      SQLField("total_articulo", "double", notnull=True, default=None)) 
+           
+"""
+Tabla con borradores de facturas por guardar
+"""
+dbRosan.define_table("factura_borrador",
+      SQLField("fecha", "date", notnull=True, default=None),
+      SQLField("id_cliente", dbRosan.cliente),
+      SQLField("tipo_iva", "double", notnull=True, default=None),
+      SQLField("neto", "double", notnull=True, default=None),
+      SQLField("retencion", "double", notnull=True, default=None),
+      SQLField("descuento", "integer", notnull=True, default=None),
+      SQLField("total_iva", "double", notnull=True, default=None),
+      SQLField("total_bruto", "double", notnull=True, default=None),
+      SQLField("pagada", "boolean", notnull=True, default=False)) 
+           
+"""
+Table con el detalle de las facturas en borradores
+"""
+dbRosan.define_table("factura_detalle_borrador",
+      SQLField("id_factura", dbRosan.factura_borrador),
+      SQLField("id_articulo", dbRosan.articulo),
+      SQLField("articulo", "text", notnull=True, default=None),
+      SQLField("precio", "double", notnull=True, default=None),
+      SQLField("cantidad", "integer", notnull=True, default=None),
+      SQLField("total_articulo", "double", notnull=True, default=None)) 
            
 
 """
