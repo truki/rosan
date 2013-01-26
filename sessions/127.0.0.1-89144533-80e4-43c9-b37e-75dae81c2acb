@@ -1,10 +1,14 @@
 (dp1
 S'_formkey[cliente/create]'
 p2
-S'37e4f0bc-7a32-4e2f-bc2f-7fd5f1ac4dcd'
+S'44987e48-3331-4e27-9bd9-a0d5a75f73cd'
 p3
 sS'_session_hash'
 p4
-S'818cd2cf5e8e9f10eee29d24dd65c55a'
+S'dd3598e03eb8617f4ca002dd956d7ed6'
 p5
+sS'_formkey[articulo/create]'
+p6
+S'c4cc03e9-8e1a-48ad-9aab-65f99bac4f83'
+p7
 s.

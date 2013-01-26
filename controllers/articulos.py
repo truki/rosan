@@ -14,3 +14,17 @@ def eliminar():
 	nombre = articuloEliminado.titulo
 	dbRosan(dbRosan.articulo.id==id).delete()
 	return dict(id=id, nombre=nombre)
+
+def nuevoArticulo():
+    info = ""
+    errores = ""
+
+    form = SQLFORM(dbRosan.articulo)
+    
+    if form.process().accepted:
+        info = "El artículo ha sido insertado"
+    elif form.errors:
+        errores = "Ha habido errores compruebe los campos"
+    else:
+        info = "Rellene el formulario para introducir un nuevo artículo en la base de datos."
+    return dict(form=form, info=info, errores=errores)

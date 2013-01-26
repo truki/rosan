@@ -11,9 +11,9 @@ def index():
 
 def eliminar():
     id = request.args[0]
-    clienteEliminado = dbRosan.cliente(id)
-    nombre = clienteEliminado.nombre
-    dbRosan(dbRosan.cliente.id==id).delete()
+    clienteEliminado = dbRosan.articulo(id)
+    nombre = articuloEliminado.nombre
+    dbRosan(dbRosan.articulo.id==id).delete()
     return dict(id=id, nombre=nombre)
 
     
