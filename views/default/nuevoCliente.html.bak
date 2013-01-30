@@ -1,7 +1,0 @@
-{{extend 'layout.html'}}
-<h1>Nuevo cliente</h1>
-{{=form}}
-<h2>Listado de clientes</h2>
-
-</br>
-{{=BEAUTIFY(request.vars)}}

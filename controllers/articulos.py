@@ -28,3 +28,21 @@ def nuevoArticulo():
     else:
         info = "Rellene el formulario para introducir un nuevo artículo en la base de datos."
     return dict(form=form, info=info, errores=errores)
+
+### Funcion verArticulo que obtiene un parámetro de la URL concretamente el id y hace una consulta.
+def verArticulo():
+    info = ""
+    errores = ""
+
+    id = dbRosan.articulo(request.args[0]) or redirect(URL('error'))
+    form = SQLFORM(dbRosan.articulo, id)
+    if form.process().accepted:
+        info = "El artículo ha sido guardado"
+    elif form.errors:
+        errores = "Ha habido un error"
+    else:
+        info = "Si lo deseas puedes modificar el artículo, después pulsa sobre submit"
+    return dict(form=form, info=info, errores=errores)
+
+
+
