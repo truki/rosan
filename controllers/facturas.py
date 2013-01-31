@@ -7,4 +7,4 @@ def index():
 
 # Funcion nuevaFactura: INicio del creación de nueva factura.
 def nuevaFactura():
-	return()
+	return dict()

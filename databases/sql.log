@@ -171,3 +171,11 @@ CREATE TABLE factura_detalle_borrador(
     total_articulo DOUBLE NOT NULL
 );
 success!
+timestamp: 2013-01-31T20:57:29.358136
+ALTER TABLE factura ADD numero INTEGER;
+timestamp: 2013-01-31T20:57:29.359905
+ALTER TABLE factura ADD titulo CHAR(255) NOT NULL;
+timestamp: 2013-01-31T21:03:11.837660
+ALTER TABLE factura ADD titulo CHAR(255);
+timestamp: 2013-01-31T21:03:11.839115
+ALTER TABLE factura ADD anulada CHAR(1) NOT NULL DEFAULT 'F';
