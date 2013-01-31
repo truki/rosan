@@ -47,6 +47,7 @@ dbRosan.define_table("articulo",
 Tabla facturas
 """
 dbRosan.define_table("factura",
+      SQLField("numero", "integer", notnull=False, default=None),
       SQLField("fecha", "date", notnull=True, default=None),
       SQLField("id_cliente", dbRosan.cliente),
       SQLField("tipo_iva", "double", notnull=True, default=None),

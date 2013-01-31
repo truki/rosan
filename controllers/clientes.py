@@ -29,7 +29,7 @@ def nuevoCliente():
     info = ""
     errores = ""
 
-    form = SQLFORM(dbRosan.cliente)
+    form = SQLFORM(dbRosan.cliente, submit_button = 'Insertar')
     
     if form.process().accepted:
         info = "El cliente ha sido insertado"
@@ -37,4 +37,18 @@ def nuevoCliente():
         errores = "Ha habido errores compruebe los campos"
     else:
         info = "Rellene el formulario para introducir un cliente en la base de datos."
+    return dict(form=form, info=info, errores=errores)
+
+def verCliente():
+    info = ""
+    errores = ""
+
+    id = dbRosan.cliente(request.args[0]) or redirect(URL('error'))
+    form = SQLFORM(dbRosan.cliente, id, submit_button = 'Guardar')
+    if form.process().accepted:
+        info = "El cliente ha sido modificado"
+    elif form.errors:
+        errores = "Ha habido un error"
+    else:
+        info = "Si lo deseas puedes modificar el artículo, después pulsa sobre guardar"
     return dict(form=form, info=info, errores=errores)

@@ -35,7 +35,7 @@ def verArticulo():
     errores = ""
 
     id = dbRosan.articulo(request.args[0]) or redirect(URL('error'))
-    form = SQLFORM(dbRosan.articulo, id)
+    form = SQLFORM(dbRosan.articulo, id, submit_button = 'Guardar')
     if form.process().accepted:
         info = "El artículo ha sido guardado"
     elif form.errors:
