@@ -41,7 +41,23 @@ dbRosan.define_table("articulo",
       SQLField("descripcion", "text", notnull=True, default=None),
       SQLField("precio", "double", notnull=True, default=None),
       SQLField("id_proveedor", dbRosan.proveedor)) 
-      
+
+"""
+Tabla iva
+"""
+dbRosan.define_table("iva",
+      SQLField("descripcion", "string", length=100, notnull=False, default=None),
+      SQLField("valor", "double", notnull=True, default=None),
+      SQLField("activo", "boolean", notnull=True, default=True)) 
+         
+"""
+Tabla retencion
+"""
+dbRosan.define_table("retencion",
+      SQLField("descripcion", "string", length=100, notnull=False, default=None),
+      SQLField("valor", "double", notnull=True, default=None),
+      SQLField("activo", "boolean", notnull=True, default=True)) 
+         
 
 """
 Tabla facturas
