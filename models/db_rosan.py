@@ -10,6 +10,20 @@ database class object creation
 """
 dbRosan = SQLDB("sqlite://dbRosan.db")
 
+
+"""
+    Tabla empresa
+"""
+dbRosan.define_table("empresa",
+      SQLField("nombre", "string", length=100, notnull=False, default=None),
+      SQLField("descripcion", "text", notnull=True, default=None),
+      SQLField("direccion", "string", length=250, notnull=True, default=None),
+      SQLField("localidad", "string", length=100, notnull=True, default=None),
+      SQLField("cod_postal", "string", length=5, notnull=True, default=None),
+      SQLField("email", "string", length=100, notnull=True, default=None),
+      SQLField("www", "string", length=200, notnull=True, default=None)
+      ) 
+
 """
 Tabla de clientes
 """

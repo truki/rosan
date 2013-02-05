@@ -179,3 +179,31 @@ timestamp: 2013-01-31T21:03:11.837660
 ALTER TABLE factura ADD titulo CHAR(255);
 timestamp: 2013-01-31T21:03:11.839115
 ALTER TABLE factura ADD anulada CHAR(1) NOT NULL DEFAULT 'F';
+timestamp: 2013-02-04T23:54:51.925550
+CREATE TABLE iva(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    descripcion CHAR(100),
+    valor DOUBLE NOT NULL,
+    activo CHAR(1) NOT NULL DEFAULT 'T'
+);
+success!
+timestamp: 2013-02-04T23:54:51.928990
+CREATE TABLE retencion(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    descripcion CHAR(100),
+    valor DOUBLE NOT NULL,
+    activo CHAR(1) NOT NULL DEFAULT 'T'
+);
+success!
+timestamp: 2013-02-05T00:00:54.191468
+CREATE TABLE empresa(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre CHAR(100),
+    descripcion TEXT NOT NULL,
+    direccion CHAR(250) NOT NULL,
+    localidad CHAR(100) NOT NULL,
+    cod_postal CHAR(5) NOT NULL,
+    email CHAR(100) NOT NULL,
+    www CHAR(200) NOT NULL
+);
+success!
