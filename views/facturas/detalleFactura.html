@@ -1,0 +1,117 @@
+{{extend 'layout_frontend_facturas.html'}}
+<div class="main">
+    <div class="main-inner">
+        <div class="container">
+        	<div class="row">
+        		<div class="span10">
+					<div class="widget">	
+						<div class="widget-header">
+							<span class="icon-check"></span>
+							<h3>Detalle de la factura...</h3>
+						</div> <!-- .widget-header -->
+						<div class="widget-content">
+							<div class="accordion" id="accordion2">
+							  <div class="accordion-group">
+							    <div class="accordion-heading">
+							      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+							        <b>Introduce un concepto</b>
+							      </a>
+							    </div>
+							    <div id="collapseOne" class="accordion-body collapse in">
+							      <div class="accordion-inner">
+							        <form id="nuevaConcepto" class="form-horizontal">
+										<fieldset>
+											<div class="control-group">											
+												<label class="control-label" for="titulo">Descripción</label>
+												<div class="controls">	
+													<textarea class="span7" rows="5" placeholder="Introduce la descripción"></textarea>
+												</div>			
+											</div> <!-- /control-group -->
+											<div class="control-group">											
+												<label class="control-label" for="cantidad">Cantidad</label>
+												<div class="controls">	
+													<input type="text" class="input-large" id="cantidad" value="1">
+												</div>
+											</div> <!-- /control-group -->
+											<div class="control-group">											
+												<label class="control-label" for="precio">Precio</label>
+												<div class="controls">	
+													<input type="text" class="input-large" id="precio" value="">
+												</div>		
+											</div> <!-- /control-group -->
+											<div class="control-group">	
+												<div class="controls">
+													<button type="submit" class="btn btn-primary">Insertar</button>
+												</div>
+											</div> <!-- /control-group -->
+											
+										
+										</fieldset>
+										
+									</form>
+									
+							      </div>
+							    </div>
+							  </div>
+							  <div class="accordion-group">
+							    <div class="accordion-heading">
+							      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+							        <b>Introduce un artículo de la base de datos</b>
+							      </a>
+							    </div>
+							    <div id="collapseTwo" class="accordion-body collapse">
+							      <div class="accordion-inner">
+							        <form id="nuevaConcepto" class="form-horizontal">
+										<fieldset>
+											<div class="control-group">											
+												<label class="control-label" for="titulo">Artículo</label>
+												<div class="controls">	
+													<input type="text" class="input-xxlarge" id="titulo" value="">
+												</div>			
+											</div> <!-- /control-group -->
+											<div class="control-group">											
+												<label class="control-label" for="cantidad">Cantidad</label>
+												<div class="controls">	
+													<input type="text" class="input-large" id="cantidad" value="1">
+												</div>
+											</div> <!-- /control-group -->
+											<div class="control-group">											
+												<label class="control-label" for="precio">Precio</label>
+												<div class="controls">	
+													<input type="text" class="input-large" id="precio" value="">
+												</div>		
+											</div> <!-- /control-group -->
+											<div class="control-group">	
+												<div class="controls">
+													<button type="submit" class="btn btn-primary">Insertar</button>
+												</div>
+											</div> <!-- /control-group -->
+											
+										
+										</fieldset>
+										
+									</form>
+							      </div>
+							    </div>
+							  </div>
+							</div>
+							
+						</div> <!-- .widget-content -->
+
+					</div> <!-- .widget widget-table -->
+
+                </div>
+                <div class="span2">
+                	<div class="widget widget-plain">
+					<div class="widget-content">
+						<a href="/rosan/facturas/nuevaFactura" class="btn btn-large btn-warning btn-support-ask">Nueva factura</a>	
+					</div> <!-- /widget-content -->
+					</div>
+                </div>
+                
+       		</div>
+        </div>     
+	</div>
+</div>
+
+
