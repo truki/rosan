@@ -58,6 +58,22 @@
 	line-height: 1em;
 }
 
+#big_stats .stat .value-modificado
+{
+	font-size: 24px;
+	font-weight: bold;
+	color: #333;
+	line-height: 1em;
+}
+
+#big_stats .stat .value-modificado-total
+{
+	font-size: 24px;
+	font-weight: bold;
+	color: #007FCC;
+	line-height: 1em;
+}
+
 
 
 @media all and (max-width: 950px) and (min-width: 1px) {
