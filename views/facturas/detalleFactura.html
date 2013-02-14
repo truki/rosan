@@ -4,10 +4,11 @@
         <div class="container">
         	<div class="row">
         		<div class="span10">
+						
 					<div class="widget">	
 						<div class="widget-header">
 							<span class="icon-check"></span>
-							<h3>Detalle de la factura...</h3>
+							<h3>Introduce un concepto o artículo...</h3>
 						</div> <!-- .widget-header -->
 						<div class="widget-content">
 							<div class="accordion" id="accordion2">
@@ -18,39 +19,10 @@
 							      </a>
 							    </div>
 							    <div id="collapseOne" class="accordion-body collapse in">
-							      <div class="accordion-inner">
-							        <form id="nuevaConcepto" class="form-horizontal">
-										<fieldset>
-											<div class="control-group">											
-												<label class="control-label" for="titulo">Descripción</label>
-												<div class="controls">	
-													<textarea class="span7" rows="5" placeholder="Introduce la descripción"></textarea>
-												</div>			
-											</div> <!-- /control-group -->
-											<div class="control-group">											
-												<label class="control-label" for="cantidad">Cantidad</label>
-												<div class="controls">	
-													<input type="text" class="input-large" id="cantidad" value="1">
-												</div>
-											</div> <!-- /control-group -->
-											<div class="control-group">											
-												<label class="control-label" for="precio">Precio</label>
-												<div class="controls">	
-													<input type="text" class="input-large" id="precio" value="">
-												</div>		
-											</div> <!-- /control-group -->
-											<div class="control-group">	
-												<div class="controls">
-													<button type="submit" class="btn btn-primary">Insertar</button>
-												</div>
-											</div> <!-- /control-group -->
-											
-										
-										</fieldset>
-										
-									</form>
-									
-							      </div>
+							     
+							     <div class="accordion-inner">
+							     	{{=formConcepto}}	
+							     </div>
 							    </div>
 							  </div>
 							  <div class="accordion-group">
@@ -61,7 +33,7 @@
 							    </div>
 							    <div id="collapseTwo" class="accordion-body collapse">
 							      <div class="accordion-inner">
-							        <form id="nuevaConcepto" class="form-horizontal">
+							        <form id="nuevaConcepto" class="form-horizontal" name="nuevoArticulos">
 										<fieldset>
 											<div class="control-group">											
 												<label class="control-label" for="titulo">Artículo</label>
@@ -131,6 +103,60 @@
                 </div>
                 
        		</div>
+       		<div class="row">
+        		<div class="span12">
+					<div class="widget widget-table">	
+						<div class="widget-header">
+							<span class="icon-check"></span>
+							<h3>Detalle de la factura</h3>
+						</div> <!-- .widget-header -->
+						<div class="widget-content">
+							<table class="table table-bordered table-striped">
+								<thead>
+								<tr>								
+									<th>Concepto / Artículo</th>
+									<th>Cantidad</th>
+									<th>Precio</th>
+                                    <th>Acciones</th>								
+								</tr>
+								</thead>
+								<tbody>
+							
+										<tr>
+											<td class="numero"></td>
+											<td class="cliente"></td>
+											<td class="numero"></td>
+											<td class="td-actions">
+												<a href="/rosan/facturas/verFactura/" class="btn btn-small btn-primary">
+													<i class="btn-icon-only icon-eye-open"></i>					
+												</a>
+												<!-- Modal -->
+												
+												<a href="#myModal" class="btn btn-small btn-danger " data-toggle="modal">
+													<i class="btn-icon-only icon-remove"></i>										
+												</a>
+												<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			                                        <div class="modal-header">
+			                                        	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			                                        	<h3 id="myModalLabel">¿Quieres eliminar esta actura?</h3>
+			                                        </div>
+			                                        <div class="modal-body">
+			                                        	<p>Vas a eliminar la factura nº <b></b> con título <b></b></p>
+			                                        </div>
+			                                        <div class="modal-footer">
+			                                        	<button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+			                                            <a href="/rosan/facturas/eliminar/" class="btn btn-danger">Eliminar</a>
+			                                        </div>
+		                                        </div>
+
+											</td>
+
+										</tr>
+								</tbody>
+							</table>	
+						</div> <!-- .widget-content -->
+					</div> <!-- .widget widget-table -->
+                </div>
         </div>     
 	</div>
 </div>
