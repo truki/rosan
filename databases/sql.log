@@ -1,4 +1,62 @@
-timestamp: 2013-02-05T16:56:28.298210
+timestamp: 2013-02-21T18:39:45.580251
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username CHAR(512),
+    first_name CHAR(512),
+    last_name CHAR(512),
+    email CHAR(512),
+    password CHAR(512),
+    created_on TIMESTAMP,
+    modified_on TIMESTAMP,
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512)
+);
+success!
+timestamp: 2013-02-21T18:39:45.584242
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2013-02-21T18:39:45.585824
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE
+);
+success!
+timestamp: 2013-02-21T18:39:45.587298
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2013-02-21T18:39:45.588922
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2013-02-21T18:39:45.590540
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    created_on TIMESTAMP,
+    service CHAR(512),
+    ticket CHAR(512),
+    renew CHAR(1)
+);
+success!
+timestamp: 2013-02-21T18:39:45.593555
 CREATE TABLE empresa(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nombre CHAR(100),
@@ -10,7 +68,37 @@ CREATE TABLE empresa(
     www CHAR(200) NOT NULL
 );
 success!
-timestamp: 2013-02-05T16:56:28.302983
+timestamp: 2013-02-21T18:39:45.595187
+CREATE TABLE cliente(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    cif CHAR(9) NOT NULL,
+    nombre CHAR(200) NOT NULL,
+    direccion CHAR(200) NOT NULL,
+    localidad CHAR(100) NOT NULL,
+    cod_postal CHAR(5) NOT NULL,
+    email CHAR(100) NOT NULL,
+    www CHAR(200) NOT NULL
+);
+success!
+timestamp: 2013-02-21T18:39:45.596706
+CREATE TABLE proveedor(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre CHAR(100),
+    cif CHAR(9) NOT NULL,
+    direccion CHAR(200) NOT NULL,
+    email CHAR(100) NOT NULL
+);
+success!
+timestamp: 2013-02-21T18:39:45.598071
+CREATE TABLE articulo(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    titulo CHAR(100),
+    descripcion TEXT NOT NULL,
+    precio DOUBLE NOT NULL,
+    id_proveedor INTEGER REFERENCES proveedor (id) ON DELETE CASCADE
+);
+success!
+timestamp: 2013-02-21T18:39:45.599344
 CREATE TABLE iva(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     descripcion CHAR(100),
@@ -18,11 +106,104 @@ CREATE TABLE iva(
     activo CHAR(1) NOT NULL DEFAULT 'T'
 );
 success!
-timestamp: 2013-02-05T16:56:28.304363
+timestamp: 2013-02-21T18:39:45.600654
 CREATE TABLE retencion(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     descripcion CHAR(100),
     valor DOUBLE NOT NULL,
     activo CHAR(1) NOT NULL DEFAULT 'T'
+);
+success!
+timestamp: 2013-02-21T18:39:45.602532
+CREATE TABLE factura(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    numero INTEGER,
+    fecha DATE NOT NULL,
+    titulo CHAR(255),
+    id_cliente INTEGER REFERENCES cliente (id) ON DELETE CASCADE,
+    tipo_iva DOUBLE NOT NULL,
+    tipo_retencion DOUBLE NOT NULL,
+    neto DOUBLE NOT NULL,
+    deduccion DOUBLE NOT NULL,
+    retencion DOUBLE NOT NULL,
+    descuento INTEGER NOT NULL,
+    total_iva DOUBLE NOT NULL,
+    total_bruto DOUBLE NOT NULL,
+    pagada CHAR(1) NOT NULL DEFAULT 'F',
+    anulada CHAR(1) NOT NULL DEFAULT 'F'
+);
+success!
+timestamp: 2013-02-21T18:39:45.604329
+CREATE TABLE factura_detalle(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_factura INTEGER REFERENCES factura (id) ON DELETE CASCADE,
+    id_articulo INTEGER REFERENCES articulo (id) ON DELETE CASCADE,
+    articulo TEXT NOT NULL,
+    precio DOUBLE NOT NULL,
+    cantidad INTEGER NOT NULL,
+    total_articulo DOUBLE NOT NULL
+);
+success!
+timestamp: 2013-02-21T18:39:45.606420
+CREATE TABLE factura_temp(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fecha DATE NOT NULL,
+    id_cliente INTEGER REFERENCES cliente (id) ON DELETE CASCADE,
+    tipo_iva DOUBLE NOT NULL,
+    tipo_retencion DOUBLE NOT NULL,
+    neto DOUBLE NOT NULL,
+    deduccion DOUBLE NOT NULL,
+    retencion DOUBLE NOT NULL,
+    descuento INTEGER NOT NULL,
+    total_iva DOUBLE NOT NULL,
+    total_bruto DOUBLE NOT NULL,
+    pagada CHAR(1) NOT NULL DEFAULT 'F'
+);
+success!
+timestamp: 2013-02-21T18:39:45.608175
+CREATE TABLE factura_detalle_temp(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_factura INTEGER REFERENCES factura_temp (id) ON DELETE CASCADE,
+    id_articulo INTEGER REFERENCES articulo (id) ON DELETE CASCADE,
+    articulo TEXT NOT NULL,
+    precio DOUBLE NOT NULL,
+    cantidad INTEGER NOT NULL,
+    total_articulo DOUBLE NOT NULL
+);
+success!
+timestamp: 2013-02-21T18:39:45.610033
+CREATE TABLE factura_borrador(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fecha DATE NOT NULL,
+    id_cliente INTEGER REFERENCES cliente (id) ON DELETE CASCADE,
+    tipo_iva DOUBLE NOT NULL,
+    tipo_retencion DOUBLE NOT NULL,
+    neto DOUBLE NOT NULL,
+    deduccion DOUBLE NOT NULL,
+    retencion DOUBLE NOT NULL,
+    descuento INTEGER NOT NULL,
+    total_iva DOUBLE NOT NULL,
+    total_bruto DOUBLE NOT NULL,
+    pagada CHAR(1) NOT NULL DEFAULT 'F'
+);
+success!
+timestamp: 2013-02-21T18:39:45.611646
+CREATE TABLE factura_detalle_borrador(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_factura INTEGER REFERENCES factura_borrador (id) ON DELETE CASCADE,
+    id_articulo INTEGER REFERENCES articulo (id) ON DELETE CASCADE,
+    articulo TEXT NOT NULL,
+    precio DOUBLE NOT NULL,
+    cantidad INTEGER NOT NULL,
+    total_articulo DOUBLE NOT NULL
+);
+success!
+timestamp: 2013-02-21T18:39:45.613143
+CREATE TABLE almacen(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_articulo INTEGER REFERENCES articulo (id) ON DELETE CASCADE,
+    cantidad INTEGER NOT NULL DEFAULT 0,
+    max INTEGER NOT NULL DEFAULT 0,
+    min INTEGER NOT NULL DEFAULT 0
 );
 success!

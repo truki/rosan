@@ -80,13 +80,13 @@
 							<div id="big_stats" class="cf">
 								<div class="stat">
 									<h4>Base imponible</h4>
-									<span class="value-modificado">15000 €</span>
+									<span class="value-modificado">{{=neto}} €</span>
 								</div>
 							</div>
 							<div id="big_stats" class="cf">
 								<div class="stat">
 									<h4>IVA</h4>
-									<span class="value-modificado">150 €</span>
+									<span class="value-modificado">{{=totalIVA}} €</span>
 								</div>
 							</div>
 						</div> <!-- /widget-content -->
@@ -96,7 +96,7 @@
 							<div id="big_stats" class="cf">
 								<div class="stat">
 									<h3>Total</h3>
-									<span class="value-modificado-total">151507,54 €</span>
+									<span class="value-modificado-total">{{=totalBruto}} €</span>
 								</div>
 							</div>
 						</div> <!-- /widget-content -->
@@ -147,7 +147,7 @@
 			                                        </div>
 			                                        <div class="modal-footer">
 			                                        	<button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
-			                                            <a href="/rosan/facturas/eliminarLinea/{{=linea.id}}" class="btn btn-danger">Eliminar</a>
+			                                            <a href="/rosan/facturas/eliminarLineaTemp/{{=linea.id}}" class="btn btn-danger">Eliminar</a>
 			                                        </div>
 		                                        </div>
 

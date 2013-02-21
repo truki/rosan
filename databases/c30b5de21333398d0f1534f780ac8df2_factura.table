@@ -10,7 +10,7 @@ p5
 I00
 sS'sortable'
 p6
-I7
+I8
 sS'sql'
 p7
 S'DOUBLE NOT NULL'
@@ -30,7 +30,7 @@ I512
 sg5
 I00
 sg6
-I10
+I12
 sg7
 S'DOUBLE NOT NULL'
 p14
@@ -46,7 +46,7 @@ I512
 sg5
 I00
 sg6
-I9
+I11
 sg7
 S'INTEGER NOT NULL'
 p17
@@ -55,7 +55,7 @@ I01
 sg10
 S'integer'
 p18
-ssS'id_cliente'
+ssS'fecha'
 p19
 (dp20
 g4
@@ -63,14 +63,14 @@ I512
 sg5
 I00
 sg6
-I5
+I3
 sg7
-S'INTEGER REFERENCES cliente (id) ON DELETE CASCADE'
+S'DATE NOT NULL'
 p21
 sg9
-I00
+I01
 sg10
-S'reference cliente'
+S'date'
 p22
 ssS'anulada'
 p23
@@ -80,7 +80,7 @@ I512
 sg5
 I00
 sg6
-I13
+I15
 sg7
 S'CHAR(1) NOT NULL'
 p25
@@ -120,44 +120,58 @@ p32
 sg9
 I00
 sg10
-S'id'
+g30
+ssS'deduccion'
 p33
-ssS'retencion'
-p34
-(dp35
+(dp34
 g4
 I512
 sg5
 I00
 sg6
-I8
+I9
 sg7
 S'DOUBLE NOT NULL'
-p36
+p35
 sg9
 I01
 sg10
 g11
-ssS'titulo'
-p37
-(dp38
+ssS'retencion'
+p36
+(dp37
 g4
-I255
+I512
 sg5
 I00
 sg6
-I4
+I10
 sg7
-S'CHAR(255)'
-p39
+S'DOUBLE NOT NULL'
+p38
 sg9
-I00
+I01
 sg10
-S'string'
-p40
-ssS'tipo_iva'
+g11
+ssS'tipo_retencion'
+p39
+(dp40
+g4
+I512
+sg5
+I00
+sg6
+I7
+sg7
+S'DOUBLE NOT NULL'
 p41
-(dp42
+sg9
+I01
+sg10
+g11
+ssS'tipo_iva'
+p42
+(dp43
 g4
 I512
 sg5
@@ -166,56 +180,73 @@ sg6
 I6
 sg7
 S'DOUBLE NOT NULL'
-p43
+p44
 sg9
 I01
 sg10
 g11
+ssS'titulo'
+p45
+(dp46
+g4
+I255
+sg5
+I00
+sg6
+I4
+sg7
+S'CHAR(255)'
+p47
+sg9
+I00
+sg10
+S'string'
+p48
 ssS'total_bruto'
-p44
-(dp45
+p49
+(dp50
 g4
 I512
 sg5
 I00
 sg6
-I11
+I13
 sg7
 S'DOUBLE NOT NULL'
-p46
+p51
 sg9
 I01
 sg10
 g11
-ssS'fecha'
-p47
-(dp48
+ssS'id_cliente'
+p52
+(dp53
 g4
 I512
 sg5
 I00
 sg6
-I3
+I5
 sg7
-S'DATE NOT NULL'
-p49
+S'INTEGER REFERENCES cliente (id) ON DELETE CASCADE'
+p54
 sg9
-I01
+I00
 sg10
-S'date'
-p50
+S'reference cliente'
+p55
 ssS'pagada'
-p51
-(dp52
+p56
+(dp57
 g4
 I512
 sg5
 I00
 sg6
-I12
+I14
 sg7
 S'CHAR(1) NOT NULL'
-p53
+p58
 sg9
 I01
 sg10
