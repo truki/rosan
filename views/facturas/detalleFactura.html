@@ -63,6 +63,7 @@
 										</fieldset>
 										
 									</form>
+									
 							      </div>
 							    </div>
 							  </div>
@@ -121,37 +122,39 @@
 								</tr>
 								</thead>
 								<tbody>
-							
+									{{for linea in lineas:}}
 										<tr>
-											<td class="numero"></td>
-											<td class="cliente"></td>
-											<td class="numero"></td>
+											<td class="articulo">{{=linea.articulo}}</td>
+											<td class="cantidad">{{=linea.cantidad}}</td>
+											<td class="precio">{{=linea.precio}}</td>
 											<td class="td-actions">
-												<a href="/rosan/facturas/verFactura/" class="btn btn-small btn-primary">
+												<a href="/rosan/facturas/detalleFactura/" class="btn btn-small btn-primary">
 													<i class="btn-icon-only icon-eye-open"></i>					
 												</a>
 												<!-- Modal -->
 												
-												<a href="#myModal" class="btn btn-small btn-danger " data-toggle="modal">
+												<a href="#myModal{{=linea.id}}" class="btn btn-small btn-danger " data-toggle="modal">
 													<i class="btn-icon-only icon-remove"></i>										
 												</a>
-												<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+												<div id="myModal{{=linea.id}}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			                                        <div class="modal-header">
 			                                        	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			                                        	<h3 id="myModalLabel">¿Quieres eliminar esta actura?</h3>
+			                                        	<h3 id="myModalLabel">¿Quieres eliminar esta linea de la factura?</h3>
 			                                        </div>
 			                                        <div class="modal-body">
-			                                        	<p>Vas a eliminar la factura nº <b></b> con título <b></b></p>
+			                                        	<p>Vas a eliminar la siguiente línea de la factura</p>
+			                                        	<p>{{=linea.id}}</p>
 			                                        </div>
 			                                        <div class="modal-footer">
 			                                        	<button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
-			                                            <a href="/rosan/facturas/eliminar/" class="btn btn-danger">Eliminar</a>
+			                                            <a href="/rosan/facturas/eliminarLinea/{{=linea.id}}" class="btn btn-danger">Eliminar</a>
 			                                        </div>
 		                                        </div>
 
 											</td>
 
 										</tr>
+									{{pass}}
 								</tbody>
 							</table>	
 						</div> <!-- .widget-content -->
